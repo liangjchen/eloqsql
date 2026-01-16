@@ -194,9 +194,10 @@ public:
                  uint64_t schema_ts, txservice::CcShard *shard,
                  const txservice::NodeGroupId ng_id) override;
 
-  std::unique_ptr<txservice::TableRangeEntry> CreateTableRange(
-      txservice::TxKey start_key, uint64_t version_ts, int64_t partition_id,
-      std::unique_ptr<txservice::StoreRange> slices= nullptr) override;
+  std::unique_ptr<txservice::TableRangeEntry>
+  CreateTableRange(txservice::TxKey start_key, uint64_t version_ts,
+                   int64_t partition_id,
+                   std::unique_ptr<txservice::StoreRange> slices) override;
 
   std::unique_ptr<txservice::CcScanner>
   CreatePkCcmScanner(txservice::ScanDirection direction,

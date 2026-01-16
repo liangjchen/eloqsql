@@ -172,18 +172,18 @@ group_commit_lock::group_commit_lock() :
 
 group_commit_lock::value_type group_commit_lock::value() const
 {
-  return m_value.load(std::memory_order::memory_order_relaxed);
+  return m_value.load(std::memory_order_relaxed);
 }
 
 group_commit_lock::value_type group_commit_lock::pending() const
 {
-  return m_pending_value.load(std::memory_order::memory_order_relaxed);
+  return m_pending_value.load(std::memory_order_relaxed);
 }
 
 void group_commit_lock::set_pending(group_commit_lock::value_type num)
 {
   ut_a(num >= value());
-  m_pending_value.store(num, std::memory_order::memory_order_relaxed);
+  m_pending_value.store(num, std::memory_order_relaxed);
 }
 
 const unsigned int MAX_SPINS = 1; /** max spins in acquire */

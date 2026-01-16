@@ -106,7 +106,7 @@ public:
       return tmp;
     }
 
-    reference operator*() noexcept { return *static_cast<pointer>(node_); }
+    reference operator*() const { return *static_cast<pointer>(node_); }
     pointer operator->() noexcept { return static_cast<pointer>(node_); }
 
     friend bool operator==(const Iterator &lhs, const Iterator &rhs) noexcept
